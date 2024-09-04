@@ -17,11 +17,13 @@
         </div>
     </div>
     
-        <audio id="bg-music" autoplay loop>
-        <source src="website-audio.mp3" type="audio/mp3">
-        
-    </audio>
-
+       document.addEventListener('DOMContentLoaded', () => {
+    const bgMusic = document.getElementById('bg-music');
+    
+    document.body.addEventListener('click', () => {
+        bgMusic.play();
+    }, { once: true });
+});
     <style>
         body {
             background-color: #ffe6e6;
