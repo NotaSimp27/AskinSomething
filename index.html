@@ -17,7 +17,8 @@
         </div>
     </div>
     
-    <audio id="bg-music" autoplay loop>
+    <!-- Audio element -->
+    <audio id="bg-music">
         <source src="website-audio.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
@@ -31,6 +32,7 @@
         const yesButton = document.getElementById('yes');
         const catImage = document.getElementById('cat');
         const container = document.querySelector('.container');
+        const bgMusic = document.getElementById('bg-music');
 
         noButton.addEventListener('mouseover', () => {
             const containerRect = container.getBoundingClientRect();
@@ -52,14 +54,12 @@
             catImage.src = "yay-cat.gif"; 
             catImage.classList.add('dance');
             document.body.style.backgroundColor = '#ff99cc';
+
+            // Play background music after clicking "Yes"
+            bgMusic.play();
         });
         
-        document.addEventListener('DOMContentLoaded', () => {
-            const bgMusic = document.getElementById('bg-music');
-            document.body.addEventListener('click', () => {
-                bgMusic.play();
-            }, { once: true });
-        });
+        catImage.style.transition = 'all 0.1s ease-in-out';
     </script>
 </body>
 </html>
